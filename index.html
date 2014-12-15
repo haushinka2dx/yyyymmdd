@@ -7,62 +7,6 @@
 
   <body>
     <div class="container input">
-      <div class="row page-title">
-        <div class="col s12 text-center">
-          <h1 class="orange-text darken-3">YYYYMMDD</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12 m1">&nbsp;
-        </div>
-        <div class="col s12 m3 input-field">
-          <input type="text" name="product" id="product">
-          <label for="product">product</label>
-        </div>
-        <div class="col s12 m1 input-field">
-          <input type="text" name="year" id="yaer">
-          <label for="year">year</label>
-        </div>
-        <div class="col s12 m1 input-field">
-          <input type="text" name="month" id="month">
-          <label for="month">month</label>
-        </div>
-        <div class="col s12 m1 input-field">
-          <input type="text" name="day" id="day">
-          <label for="day">day</label>
-        </div>
-        <div class="col s12 m1 input-field">
-          <input type="text" name="dayOfWeek" id="dayOfWeek">
-          <label for="dayOfWeek">DOW</label>
-        </div>
-        <div class="col s12 m1 input-field">
- <!--
-          <input type="text" name="hour" id="hour">
-          <label for="hour">hour</label>
- -->
-          <div class="row">
-            <div class="col s12">
-              <select>
-                <option value="" disabled selected>hour</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-              </select>
-            </div>
-          </div>
-
-        </div>
-        <div class="col s12 m1 input-field">
-          <input type="text" name="minute" id="minute">
-          <label for="minute">minute</label>
-        </div>
-        <div class="col s12 m1 input-field">
-          <input type="text" name="second" id="second">
-          <label for="second">second</label>
-        </div>
-        <div class="col s12 m1">&nbsp;
-        </div>
-      </div>
     </div>
 
     <div class="container result-root">
@@ -74,6 +18,108 @@
     <script type="text/javascript" src="js/hogan.min.js"></script>
     <script type="text/javascript" src="js/yyyymmdd.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/template" id="tmpl-header-row">
+<div class="row page-title">
+  <div class="col s12 text-center">
+    <h1 class="orange-text darken-3">YYYYMMDD</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m1">&nbsp;
+  </div>
+  <div class="col s12 m3 input-field">
+    <input type="text" name="product" id="product">
+    <label for="product">product</label>
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>year</option>
+          {{#year}}
+          <option value="{{.}}">{{.}}</option>
+          {{/year}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>month</option>
+          {{#month}}
+          <option value="{{.}}">{{.}}</option>
+          {{/month}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>day</option>
+          {{#day}}
+          <option value="{{.}}">{{.}}</option>
+          {{/day}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>DOW</option>
+          {{#dayOfWeek}}
+          <option value="{{.}}">{{.}}</option>
+          {{/dayOfWeek}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>hour</option>
+          {{#hour}}
+          <option value="{{.}}">{{.}}</option>
+          {{/hour}}
+        </select>
+      </div>
+    </div>
+
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>minute</option>
+          {{#minute}}
+          <option value="{{.}}">{{.}}</option>
+          {{/minute}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m1 input-field">
+    <div class="row">
+      <div class="col s12">
+        <select>
+          <option value="" disabled selected>second</option>
+          {{#second}}
+          <option value="{{.}}">{{.}}</option>
+          {{/second}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m1">&nbsp;
+  </div>
+</div>
+    </script>
     <script type="text/template" id="tmpl-result-row">
 <div class="row">
   <div class="col s12 m1">&nbsp;

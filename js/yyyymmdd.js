@@ -58,6 +58,38 @@ var ymd = (function() {
         'ss': 'ss',
         's': 'ss'
       }
+    },
+    {
+      'product': 'php',
+      'year': {
+        'yyyy': 'yyyy',
+        'yy'  : 'yy'
+      },
+      'month': {
+        'mm'  : 'MM',
+        'm'   : 'M'
+      },
+      'day': {
+        'dd'  : 'dd',
+        'd'   : 'd'
+      },
+      'dayOfWeek': {
+        'locale' : 'E'
+      },
+      'hour': {
+        'hh24': 'HH',
+        'hh12': 'hh',
+        'h24': 'H',
+        'h12': 'h'
+      },
+      'minute': {
+        'mm': 'mm',
+        'm': 'm'
+      },
+      'second': {
+        'ss': 'ss',
+        's': 'ss'
+      }
     }
   ];
 
