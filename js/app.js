@@ -8,7 +8,9 @@ var app = (function() {
 
     var context = ymd.patterns();
     var t = Hogan.compile($("#tmpl-header-row").text());
-    $(".container.input").append(t.render(context));
+    $(".ymd-header").append(t.render(context));
+
+    $(".dropdown").dropdown({ 'transition': 'drop' });
   };
 
   App.show = function(keyword, format) {
@@ -22,15 +24,17 @@ var app = (function() {
         }
         res[k] = v;
       });
-      //res['year'] = s['year'][format.year];
       return res;
     });
 
     var t = Hogan.compile($("#tmpl-result-row").text());
-    $(".result-root").empty();
+    $(".ymd-body").empty();
     _.forEach(context, function(c) {
-      $(".result-root").append(t.render(c));
+      $(".ymd-body").append(t.render(c));
     });
+  };
+
+  App.changeFormat = function(format) {
   };
 
   return App;
