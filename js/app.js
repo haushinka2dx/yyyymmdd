@@ -8,7 +8,7 @@ var app = (function() {
     $(".ymd-header").append(t.render(this.patterns));
 
     function handleDropDownChanged(value, text) {
-      var keyword = $('#product').text();
+      var keyword = $('#product').val();
       this.show(keyword, this.createFormat());
     }
 
