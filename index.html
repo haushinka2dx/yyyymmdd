@@ -39,7 +39,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-year">
       <div class="text">year</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -50,7 +50,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-month">
       <div class="text">month</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -61,7 +61,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-day">
       <div class="text">day</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -72,7 +72,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-dayOfWeek">
       <div class="text">DOW</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -83,7 +83,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-hour">
       <div class="text">hour</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -94,7 +94,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-minute">
       <div class="text">minute</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -105,7 +105,7 @@
     </div>
   </th>
   <th>
-    <div class="ui dropdown">
+    <div class="ui dropdown ymd-second">
       <div class="text">second</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -118,29 +118,29 @@
 </tr>
     </script>
     <script type="text/template" id="tmpl-result-row">
-<tr>
-  <td>
+<tr id="ymd-{{product}}">
+  <td class="product">
     <span>{{product}}</span>
   </td>
-  <td>
+  <td class="year">
     <span>{{year}}</span>
   </td>
-  <td>
+  <td class="month">
     <span>{{month}}</span>
   </td>
-  <td>
+  <td class="day">
     <span>{{day}}</span>
   </td>
-  <td>
+  <td class="dayOfWeek">
     <span>{{dayOfWeek}}</span>
   </td>
-  <td>
+  <td class="hour">
     <span>{{hour}}</span>
   </td>
-  <td>
+  <td class="minute">
     <span>{{minute}}</span>
   </td>
-  <td>
+  <td class="second">
     <span>{{second}}</span>
   </td>
 </tr>

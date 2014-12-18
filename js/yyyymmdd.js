@@ -95,16 +95,6 @@ var ymd = (function() {
 
   function YMD() {}
 
-  YMD.defaultFormat = {
-    'year'      : 'yyyy',
-    'month'     : 'mm',
-    'day'       : 'dd',
-    'dayOfWeek' : 'numFrom0',
-    'hour'      : 'hh24',
-    'minute'    : 'mm',
-    'second'    : 'ss'
-  };
-
   YMD.patterns = function() {
     var patterns = {};
     _.forEach(src, function(oneSrc) {

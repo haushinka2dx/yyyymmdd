@@ -2,19 +2,40 @@ var app = (function() {
   function App() {}
 
   App.init = function() {
-    for (var i=1; i<=3; i++) {
-      $("#target").append('<option value="' + i + '">Option ' + i + '</option>')
+    this.headers = ['year', 'month', 'day', 'dayOfWeek', 'hour', 'minute', 'second'];
+    this.patterns = ymd.patterns();
+    var t = Hogan.compile($("#tmpl-header-row").text());
+    $(".ymd-header").append(t.render(this.patterns));
+
+    function handleDropDownChanged(value, text) {
+      var keyword = $('#product').text();
+      this.show(keyword, this.createFormat());
     }
 
-    var context = ymd.patterns();
-    var t = Hogan.compile($("#tmpl-header-row").text());
-    $(".ymd-header").append(t.render(context));
+    var dropdownOnChangeHandler = handleDropDownChanged.bind(this);
 
-    $(".dropdown").dropdown({ 'transition': 'drop' });
+    $(".dropdown").dropdown({
+      transition: 'drop',
+      onChange: dropdownOnChangeHandler
+    });
   };
 
+  App.createFormat = function() {
+    var _app = this;
+    var format = {};
+    _.forEach(this.headers, function(column) {
+      var formatValue = $('.ymd-' + column + ' .item.selected').text();
+      if (formatValue == '') {
+        formatValue = _app.patterns[column][0];
+      }
+      format[column] = formatValue;
+    });
+    return format;
+  }
+
   App.show = function(keyword, format) {
-    var context = _.map(ymd.get(keyword), function(s) {
+    this.lastData = ymd.get(keyword);
+    var context = _.map(this.lastData, function(s) {
       var res = {};
       res['product'] = s.product;
       _.forEach(_.keys(format), function(k) {
@@ -34,9 +55,6 @@ var app = (function() {
     });
   };
 
-  App.changeFormat = function(format) {
-  };
-
   return App;
 })();
 
@@ -45,7 +63,7 @@ $(document).ready(function() {
 
   var keyEventHandler = function(e) {
     var keyword = e.keyCode == 46 || e.keyCode == 8 ? e.target.value : e.target.value + String.fromCharCode(e.keyCode);
-    app.show(keyword, ymd.defaultFormat);
+    app.show(keyword, app.createFormat());
   };
 
   $("#product").on('keypress', keyEventHandler);
@@ -55,5 +73,5 @@ $(document).ready(function() {
     }
   });
 
-  app.show('', ymd.defaultFormat);
+  app.show('', app.createFormat());
 });
